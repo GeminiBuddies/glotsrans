@@ -5,13 +5,13 @@ import (
 	"glotsrans/utils/gformat"
 )
 
-type HexOrBlobQuery struct {
-	Bytes int `form:"bytes"`
+type HexQuery struct {
+	Bytes int  `form:"bytes"`
 	Upper bool `form:"upper"`
 }
 
 func GetHex(ctx *gin.Context) {
-	var q HexOrBlobQuery
+	var q HexQuery
 	q.Bytes = 16
 
 	if err := ctx.ShouldBindQuery(&q); err != nil {
@@ -21,8 +21,12 @@ func GetHex(ctx *gin.Context) {
 	}
 }
 
+type BlobQuery struct {
+	Bytes int `form:"bytes"`
+}
+
 func GetBlob(ctx *gin.Context) {
-	var q HexOrBlobQuery
+	var q BlobQuery
 	q.Bytes = 16
 
 	if err := ctx.ShouldBindQuery(&q); err != nil {

@@ -18,8 +18,8 @@ func ToHexString(data []byte, upperCase bool) string {
 
 	for i := 0; i < l; i++ {
 		b := data[i]
-		sb.WriteByte(digits[b >> 4])
-		sb.WriteByte(digits[b & 15])
+		sb.WriteByte(digits[b>>4])
+		sb.WriteByte(digits[b&15])
 	}
 
 	return sb.String()

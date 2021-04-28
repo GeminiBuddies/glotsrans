@@ -12,9 +12,9 @@ func main() {
 	l, _ := net.Listen("tcp", ":22345")
 
 	s := &http.Server{
-		Addr:              l.Addr().String(),
-		Handler:           router.Create(),
-		MaxHeaderBytes:    1 << 20,
+		Addr:           l.Addr().String(),
+		Handler:        router.Create(),
+		MaxHeaderBytes: 1 << 20,
 	}
 	s.SetKeepAlivesEnabled(true)
 
