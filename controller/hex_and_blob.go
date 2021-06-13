@@ -16,6 +16,8 @@ func GetHex(ctx *gin.Context) {
 
 	if err := ctx.ShouldBindQuery(&q); err != nil {
 		_ = ctx.AbortWithError(400, err)
+	} else if q.Bytes > 1048576 {
+		ctx.String(429, "too greedy")
 	} else {
 		ctx.Data(200, "text/plain", []byte(gformat.ToHexString(r.ReadByteSlice(q.Bytes), q.Upper)))
 	}
@@ -31,6 +33,8 @@ func GetBlob(ctx *gin.Context) {
 
 	if err := ctx.ShouldBindQuery(&q); err != nil {
 		_ = ctx.AbortWithError(400, err)
+	} else if q.Bytes > 1048576 {
+		ctx.String(429, "too greedy")
 	} else {
 		ctx.Data(200, "application/octet-stream", r.ReadByteSlice(q.Bytes))
 	}

@@ -4,9 +4,11 @@ import (
 	"crypto/rand"
 	"github.com/gin-gonic/gin"
 	"glotsrans/utils/gbinary"
+	"glotsrans/utils/grand"
 )
 
-var r = gbinary.NewReader(rand.Reader)
+var sr = gbinary.NewReader(rand.Reader)
+var r = gbinary.NewReader(grand.Reader(grand.NewPCGWithSeed(sr.ReadUInt64(), sr.ReadUInt64())))
 
 func sendAsText(ctx *gin.Context, data interface{}) {
 	ctx.String(200, "%v", data)
