@@ -9,7 +9,7 @@ import (
 )
 
 func main() {
-	l, _ := net.Listen("tcp", ":22345")
+	l, _ := net.Listen("tcp", "localhost:22345")
 
 	s := &http.Server{
 		Addr:           l.Addr().String(),

@@ -10,7 +10,7 @@ func Create() *gin.Engine {
 	r.Use(gin.Recovery())
 
 	buildMainRouter(&r.RouterGroup)
-	buildSecRouter(r.Group("/s"))
+	buildSecureRouter(r.Group("/s"))
 
 	return r
 }
@@ -20,8 +20,11 @@ func buildMainRouter(r *gin.RouterGroup) {
 	r.GET("/int32u", controller.GetInt32U)
 	r.GET("/hex", controller.GetHex)
 	r.GET("/blob", controller.GetBlob)
+	r.GET("/base64", controller.GetBase64)
+
+	r.GET("/help", controller.HelpAll)
 }
 
-func buildSecRouter(r *gin.RouterGroup) {
+func buildSecureRouter(r *gin.RouterGroup) {
 	// r.GET("/hex", controller.GetHexSec)
 }

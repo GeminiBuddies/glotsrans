@@ -7,8 +7,8 @@ import (
 )
 
 type BinaryReader struct {
-	src  io.Reader
-	buff [8]byte
+	src       io.Reader
+	buff      [8]byte
 	buffSlice []byte
 }
 
