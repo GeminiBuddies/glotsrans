@@ -26,5 +26,5 @@ func buildMainRouter(r *gin.RouterGroup) {
 }
 
 func buildSecureRouter(r *gin.RouterGroup) {
-	// r.GET("/hex", controller.GetHexSec)
+	r.GET("/uuid", controller.SecurityGetUUID)
 }

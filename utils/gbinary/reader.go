@@ -50,14 +50,21 @@ func (b *BinaryReader) ReadUInt64() uint64 {
 
 func (b *BinaryReader) ReadByteSlice(n int) []byte {
 	buff := make([]byte, n)
-	count, err := b.src.Read(buff)
+	b.MustRead(buff)
+	return buff
+}
+
+func (b *BinaryReader) MustRead(p []byte) {
+	count, err := b.src.Read(p)
 	if err != nil {
 		panic(err)
 	}
 
-	if count < n {
-		panic(gerror.CannotReadAsManyAsExpected(n, count))
+	if count < len(p) {
+		panic(gerror.CannotReadAsManyAsExpected(len(p), count))
 	}
+}
 
-	return buff
+func (b *BinaryReader) Read(p []byte) (n int, err error) {
+	return b.src.Read(p)
 }

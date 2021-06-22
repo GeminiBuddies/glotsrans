@@ -94,6 +94,12 @@ var predefinedHelpItems = helpItems{
 		},
 		Description: "Bytes (no more than 1048576) in base64 form",
 	},
+	{
+		Path: "/s/uuid",
+		Type: "text/plain",
+		Params: nil,
+		Description: "A uuid (Version 4, Variant 2) in format xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+	},
 }
 
 func HelpAll(ctx *gin.Context) {
