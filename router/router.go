@@ -18,6 +18,8 @@ func Create() *gin.Engine {
 func buildMainRouter(r *gin.RouterGroup) {
 	r.GET("/int32s", controller.GetInt32S)
 	r.GET("/int32u", controller.GetInt32U)
+	r.GET("/int64s", controller.GetInt64S)
+	r.GET("/int64u", controller.GetInt64U)
 	r.GET("/hex", controller.GetHex)
 	r.GET("/blob", controller.GetBlob)
 	r.GET("/base64", controller.GetBase64)

@@ -21,3 +21,11 @@ func GetInt32S(ctx *gin.Context) {
 func GetInt32U(ctx *gin.Context) {
 	sendAsText(ctx, r.ReadUInt32())
 }
+
+func GetInt64S(ctx *gin.Context) {
+	sendAsText(ctx, r.ReadInt64())
+}
+
+func GetInt64U(ctx *gin.Context) {
+	sendAsText(ctx, r.ReadUInt64())
+}

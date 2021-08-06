@@ -70,6 +70,18 @@ var predefinedHelpItems = helpItems{
 		Description: "Unsigned 32-bit integer in decimal form",
 	},
 	{
+		Path:        "/int64s",
+		Type:        "text/plain",
+		Params:      nil,
+		Description: "Signed 64-bit integer in decimal form",
+	},
+	{
+		Path:        "/int64u",
+		Type:        "text/plain",
+		Params:      nil,
+		Description: "Unsigned 64-bit integer in decimal form",
+	},
+	{
 		Path: "/hex",
 		Type: "text/plain",
 		Params: paramsHelp{
